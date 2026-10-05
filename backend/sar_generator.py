@@ -56,11 +56,12 @@ async def _call_nvidia_nim(cluster_data: dict) -> str:
 
 async def generate_legal_narrative(cluster_data: dict) -> str:
     """
-    Invokes NVIDIA NIM API with a 1500ms circuit breaker.
+    Invokes NVIDIA NIM API with a 15-second circuit breaker.
     If timeout or network failure occurs, instantaneously returns the deterministic report.
     """
     try:
-        return await asyncio.wait_for(_call_nvidia_nim(cluster_data), timeout=1.5)
+        # Give NVIDIA NIM 15s to respond over WiFi
+        return await asyncio.wait_for(_call_nvidia_nim(cluster_data), timeout=15.0)
     except Exception as e:
         print(f"[*] Circuit-breaker triggered ({type(e).__name__}). Using instant deterministic legal fallback.")
         return deterministic_sar_narrative(cluster_data)
