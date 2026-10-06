@@ -18,7 +18,7 @@ def deterministic_sar_narrative(cluster_data: Dict[str, Any]) -> str:
     return f"""================================================================================
 FINANCIAL CRIMES ENFORCEMENT & ADVERSE ACTION COMPLIANCE REPORT
 INCIDENT REFERENCE: SAR-SG-{cluster_id:04d} | TIMESTAMP: {timestamp}
-REGULATORY GOVERNANCE: ECOA REGULATION B (12 CFR § 1002.9) / EU AI ACT (REG. 2024/1689 ART 13/14) / RBI DIRECTIONS
+REGULATORY GOVERNANCE: ECOA REGULATION B (12 CFR § 1002.9) / CFPB CIRCULAR 2023-03 / EU AI ACT (REG. 2024/1689 ART 13/14) / RBI DIRECTIONS
 ================================================================================
 
 EXECUTIVE SUMMARY:
